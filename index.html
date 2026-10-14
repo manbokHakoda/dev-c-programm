@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ахлах ангийн сурагчдад зориулсан C хэлний 20 интерактив хичээл. Жишээ код, тайлбар, дасгал, өөрийгөө шалгах тест.">
+  <title>C Programming — Алхам алхмаар, ойлгомжтой</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Нүүр">
+      <span class="brand-icon">C</span>
+      <span><strong>C Programming</strong><small>Алхам алхмаар, ойлгомжтой</small></span>
+    </a>
+    <nav class="main-nav" aria-label="Үндсэн цэс">
+      <button class="nav-link active" data-view="course">⌂ <span>Хичээлүүд</span></button>
+      <button class="nav-link" data-view="practice">▣ <span>Дасгал</span></button>
+      <button class="nav-link" data-view="quiz">▤ <span>Шалгалт</span></button>
+      <button class="nav-link" data-view="progress">▥ <span>Ахиц</span></button>
+    </nav>
+    <div class="student-pill"><span class="avatar">♙</span><span>Сурагч</span></div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">АХЛАХ АНГИЙН СУРАГЧДАД ЗОРИУЛАВ</p>
+      <h1>C хэлний интерактив сургалт</h1>
+      <p class="hero-sub">20 хичээл · Энгийн тайлбар · Жишээ код · Дасгал · Шалгалт</p>
+      <p class="hero-desc">Кодыг зөвхөн бичих биш, ойлгож сур. Өөрөө туршиж, алдаагаа засаж, жижиг програм бүтээ!</p>
+      <button class="primary-btn" id="startBtn">▶ Хичээлээ эхлэх <span>→</span></button>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="glow"></div>
+      <div class="book book-one"></div><div class="book book-two"></div><div class="book book-three"></div>
+      <div class="laptop">
+        <div class="laptop-screen"><div class="screen-logo">C</div><code>#include &lt;stdio.h&gt;<br><br>int main() {<br>&nbsp; printf("Сайн байна!");<br>&nbsp; return 0;<br>}</code></div>
+        <div class="laptop-base"></div>
+      </div>
+      <div class="pencil-cup">✎<br>✎<br>✎</div>
+      <div class="hand-note">Бага багаар<br>ихийг сур!</div>
+    </div>
+  </section>
+
+  <main class="workspace" id="workspace">
+    <aside class="lesson-sidebar">
+      <div class="sidebar-heading"><span>🎓</span><strong>20 хичээл</strong><span class="progress-count" id="sideCount">0/20</span></div>
+      <div id="lessonList" class="lesson-list"></div>
+    </aside>
+
+    <section class="lesson-panel" id="lessonPanel">
+      <div class="lesson-toolbar">
+        <div><small id="lessonPosition">Хичээл 1 / 20</small><h2 id="lessonTitle">C хэлтэй танилцах</h2></div>
+        <div class="pager">
+          <button id="prevBtn" class="secondary-btn" disabled>← Өмнөх</button>
+          <button id="nextBtn" class="primary-btn small">Дараах →</button>
+        </div>
+      </div>
+      <article class="lesson-content">
+        <div class="lesson-intro">
+          <div class="c-badge">C</div>
+          <div><h3 id="contentHeading">C хэл гэж юу вэ?</h3><p id="lessonDescription"></p></div>
+        </div>
+        <div class="tip-card"><strong>💡 Гол санаа</strong><p id="lessonTip"></p></div>
+        <h3 class="section-title">🧩 Жишээ програм</h3>
+        <div class="code-card">
+          <div class="code-label"><span>main.c</span><button id="copyBtn" class="text-btn">Хуулах</button></div>
+          <pre><code id="exampleCode"></code></pre>
+          <div class="code-actions"><button class="primary-btn small" id="runBtn">▶ Кодын үр дүнг харах</button></div>
+        </div>
+        <div class="explain-card"><strong>🪄 Мөр мөрөөр тайлбар</strong><ol id="explanationList"></ol></div>
+        <div class="challenge-card">
+          <div><strong>✍️ Өөрөө туршаарай</strong><p id="challengeText"></p></div>
+          <button id="completeBtn" class="complete-btn">✓ Хичээл дуусгах</button>
+        </div>
+      </article>
+    </section>
+
+    <aside class="right-column">
+      <section class="editor-card">
+        <div class="panel-heading"><strong>Кодын жишээ</strong><span class="live-dot">● Суралцах горим</span></div>
+        <textarea id="codeEditor" spellcheck="false" aria-label="Код засварлах хэсэг"></textarea>
+        <div class="editor-footer"><span>Энд кодоо өөрчилж болно</span><button id="runEditorBtn" class="run-btn">▶ Ажиллуулах</button></div>
+      </section>
+      <section class="output-card">
+        <div class="panel-heading"><strong>Гаралт (Output)</strong><button id="clearOutputBtn" class="text-btn">Арилгах</button></div>
+        <pre id="outputText">Кодоо ажиллуулахад үр дүн энд гарна.</pre>
+        <small class="notice">Сургалтын энгийн симулятор: нийтлэг жишээнүүдийг дуурайлган харуулна. Бүх C кодыг бодитоор compile хийхгүй.</small>
+      </section>
+      <section class="quiz-card" id="miniQuiz">
+        <div class="panel-heading dark-text"><strong>🎓 Өөрийгөө шалгая</strong><span id="quizCounter">1/3</span></div>
+        <p id="questionText" class="question"></p>
+        <div id="answerOptions" class="answer-options"></div>
+        <button id="checkAnswerBtn" class="primary-btn full-width">Хариулт шалгах</button>
+        <div id="answerFeedback" class="feedback" aria-live="polite"></div>
+      </section>
+    </aside>
+  </main>
+
+  <section class="feature-strip">
+    <div class="feature"><span>🎯</span><div><strong>Алхам алхмаар</strong><small>Эхнээс нь дарааллаар суралцана.</small></div></div>
+    <div class="feature"><span>▣</span><div><strong>Интерактив дасгал</strong><small>Өөрөө код бичиж, үр дүнг харна.</small></div></div>
+    <div class="feature"><span>💡</span><div><strong>Алдаа засах</strong><small>Буруу кодоо олж, зөв хувилбарыг сурна.</small></div></div>
+    <div class="feature"><span>🏆</span><div><strong>Шалгалт</strong><small>Сурсан зүйлээ шалгаж, оноо авна.</small></div></div>
+    <div class="feature"><span>📊</span><div><strong>Ахиц дэвшил</strong><small>Дуусгасан хичээлээ тэмдэглэнэ.</small></div></div>
+  </section>
+  <footer><span>© 2026 C Programming</span><span>Боловсрол бол хамгийн хүчирхэг зэвсэг</span><div class="language-switch"><button class="lang active">MN</button><button class="lang" title="Жишээ загвар">JA</button><button class="lang" title="Жишээ загвар">EN</button></div></footer>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
